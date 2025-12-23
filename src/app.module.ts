@@ -1,4 +1,4 @@
-import { ExecutionContext, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { DevCycleModule } from '@devcycle/nestjs-server-sdk';
@@ -14,7 +14,7 @@ import { TaskService } from './task.service';
     DevCycleModule.forRoot({
       key: process.env.DEVCYCLE_SERVER_SDK_KEY,
       options: {},
-      userFactory: (context: ExecutionContext) => ({
+      userFactory: () => ({
         user_id: 'user123',
         name: 'Jane Doe',
         email: 'jane.doe@email.com',
